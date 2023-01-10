@@ -15,9 +15,9 @@ const images = [
   },
 ];
 
-const galleryParrent = document.querySelector('.gallery');
+const galleryContainer = document.querySelector('.gallery');
 
-const markupGalleryHTML = images
+const createCardsMarkup = images
   .map(
     ({ url, alt }) =>
       `
@@ -28,13 +28,13 @@ const markupGalleryHTML = images
   )
   .join('');
 
-galleryParrent.insertAdjacentHTML('beforeend', markupGalleryHTML);
+galleryContainer.insertAdjacentHTML('beforeend', createCardsMarkup);
 
-galleryParrent.style.listStyle = 'none';
-galleryParrent.style.paddingLeft = '0';
-galleryParrent.style.display = 'flex';
-galleryParrent.style.justifyContent = 'center';
-galleryParrent.style.gap = '20px';
+galleryContainer.style.listStyle = 'none';
+galleryContainer.style.paddingLeft = '0';
+galleryContainer.style.display = 'flex';
+galleryContainer.style.justifyContent = 'center';
+galleryContainer.style.gap = '20px';
 
 const pictureEl = document.querySelector('.picture');
 
@@ -43,15 +43,15 @@ pictureEl.style.maxWidth = '100%';
 pictureEl.style.height = 'auto';
 
 //* ---- Second option (reduce)
-// const galleryParrent = document.querySelector('.gallery');
+// const galleryContainer = document.querySelector('.gallery');
 
-// const createGalleryItem = ({ url, alt }) =>
+// const createCardsMarkup = ({ url, alt }) =>
 //   `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
 
-// const markupGalleryHTML = images.reduce((acc, item) => acc + createGalleryItem(item), '');
+// const galleryCards = images.reduce((acc, item) => acc + createCardsMarkup(item), '');
 
-// galleryParrent.insertAdjacentHTML('afterbegin', markupGalleryHTML);
-// galleryParrent.setAttribute(
+// galleryContainer.insertAdjacentHTML('afterbegin', galleryCards);
+// galleryContainer.setAttribute(
 //   'style',
 //   'list-style-type:none; display: flex; justify-content: center; gap: 20px'
 // );
