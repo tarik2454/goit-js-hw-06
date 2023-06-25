@@ -1,10 +1,8 @@
-'use strict';
+const fontSizeControlInput = document.querySelector('#font-size-control');
+const textChange = document.querySelector('#text');
 
-const fontSizeControlInput = document.querySelector('input#font-size-control');
-const textOutput = document.querySelector('span#text');
+fontSizeControlInput.addEventListener('input', onInputChange);
 
-fontSizeControlInput.addEventListener('input', onFontSizeChange);
-
-function onFontSizeChange(event) {
-  textOutput.style.fontSize = event.currentTarget.value + 'px';
+function onInputChange({ target }) {
+  textChange.style.fontSize = `${target.value}px`;
 }

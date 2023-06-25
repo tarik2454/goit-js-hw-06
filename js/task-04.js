@@ -1,19 +1,25 @@
-'use strict';
+const counterObject = {
+  count: 0,
 
-const decrementBtn = document.querySelector('[data-action="decrement"]');
-const incrementBtn = document.querySelector('[data-action="increment"]');
-const valueEl = document.querySelector('#value');
-let counterValue = 0;
+  increment() {
+    this.count += 1;
+  },
+  decrement() {
+    this.count -= 1;
+  },
+};
 
-incrementBtn.addEventListener('click', onIncrementClick);
-decrementBtn.addEventListener('click', onDecrementClick);
+const counter = document.querySelector('#counter');
+const countValue = document.querySelector('#value');
 
-function onIncrementClick() {
-  const counter = (counterValue += 1);
-  valueEl.textContent = counter;
-}
+counter.addEventListener('click', ({ target }) => {
+  countValue.textContent = counterObject.count;
 
-function onDecrementClick() {
-  const counter = (counterValue -= 1);
-  valueEl.textContent = counter;
-}
+  if (target.dataset.action === 'increment') {
+    counterObject.increment();
+  }
+
+  if (target.dataset.action === 'decrement') {
+    counterObject.decrement();
+  }
+});

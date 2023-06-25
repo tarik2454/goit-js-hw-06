@@ -1,22 +1,37 @@
-'use strict';
+const form = document.querySelector('.login-form');
 
-const formEl = document.querySelector('.login-form');
-
-formEl.addEventListener('submit', onFormSubmit);
+form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
 
   const {
     elements: { email, password },
-  } = event.currentTarget;
+  } = event.target;
 
-  if (email.value === '' || password.value === '') {
+  if (!email.value || !password.value) {
     alert('Все поля формы должны быть заполнены');
   }
 
   const userDetails = { email: email.value, password: password.value };
   console.log(userDetails);
 
-  event.currentTarget.reset();
+  event.target.reset();
 }
+
+//* ---- Second option (FormData)
+// const form = document.querySelector('form.login-form ');
+
+// const onFormSubmit = event => {
+//   event.preventDefault();
+
+//   const formData = new FormData(form);
+
+//   formData.forEach((value, key) => {
+//     console.log(`${key} ==> ${value}`);
+//   });
+
+//   form.reset();
+// };
+
+// form.addEventListener('submit', onFormSubmit);

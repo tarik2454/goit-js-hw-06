@@ -1,10 +1,8 @@
-'use strict';
+const nameInput = document.querySelector('#name-input');
+const nameOutput = document.querySelector('#name-output');
 
-const textInput = document.querySelector('#name-input[placeholder]');
-const textOutput = document.querySelector('#name-output');
+nameInput.addEventListener('input', onInputChange);
 
-textInput.addEventListener('input', changeName);
-
-function changeName(event) {
-  textOutput.textContent = event.currentTarget.value;
+function onInputChange({ target }) {
+  nameOutput.textContent = target.value;
 }
