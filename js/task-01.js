@@ -2,7 +2,7 @@ const categoriesList = document.querySelectorAll('li.item');
 
 console.log(`Number of categories: ${categoriesList.length}`);
 
-categoriesList.forEach(categorie => {
-  console.log(`Category: ${categorie.firstElementChild.textContent}`);
-  console.log(`Elements: ${categorie.children[1].children.length}`);
+[...categoriesList].map(categorie => {
+  console.log(`Category: ${categorie.querySelector('h2').textContent}`);
+  console.log(`Elements: ${categorie.querySelector('ul').children.length}`);
 });

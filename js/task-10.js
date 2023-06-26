@@ -6,10 +6,12 @@ const boxesList = document.querySelector('div#boxes');
 const createBoxes = amount => {
   const elementsToAdd = [];
 
+  const existingBoxesCount = boxesList.childElementCount;
+
   for (let i = 0; i < amount; i += 1) {
     const div = document.createElement('div');
-    div.style.width = `${30 + 10 * i}px`;
-    div.style.height = `${30 + 10 * i}px`;
+    div.style.width = `${30 + 10 * (existingBoxesCount + i)}px`;
+    div.style.height = `${30 + 10 * (existingBoxesCount + i)}px`;
     div.style.backgroundColor = getRandomHexColor();
 
     elementsToAdd.push(div);
@@ -24,13 +26,11 @@ const destroyBoxes = () => {
 };
 
 createBtn.addEventListener('click', () => {
-  let boxesToAdd = createBoxes(inputNumEl.value);
+  const boxesToAdd = createBoxes(inputNumEl.value);
   boxesList.append(...boxesToAdd);
 });
 
-destroyBtn.addEventListener('click', () => {
-  destroyBoxes();
-});
+destroyBtn.addEventListener('click', destroyBoxes);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)

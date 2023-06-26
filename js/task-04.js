@@ -12,14 +12,15 @@ const counterObject = {
 const counter = document.querySelector('#counter');
 const countValue = document.querySelector('#value');
 
-counter.addEventListener('click', ({ target }) => {
+counter.addEventListener('click', event => {
+  const { action } = event.target.dataset;
   countValue.textContent = counterObject.count;
 
-  if (target.dataset.action === 'increment') {
+  if (action === 'increment') {
     counterObject.increment();
   }
 
-  if (target.dataset.action === 'decrement') {
+  if (action === 'decrement') {
     counterObject.decrement();
   }
 });

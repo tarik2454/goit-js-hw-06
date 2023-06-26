@@ -5,9 +5,7 @@ form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  const {
-    elements: { email, password },
-  } = event.target;
+  const { email, password } = event.target.elements;
 
   if (!email.value || !password.value) {
     alert('Все поля формы должны быть заполнены');

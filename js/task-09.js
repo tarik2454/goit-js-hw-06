@@ -11,7 +11,7 @@ function getRandomHexColor() {
 }
 
 function onChangeColorButton() {
-  let color = getRandomHexColor();
+  const color = getRandomHexColor();
   body.style.backgroundColor = color;
   colorValue.textContent = color;
 }

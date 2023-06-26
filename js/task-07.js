@@ -3,6 +3,6 @@ const textChange = document.querySelector('#text');
 
 fontSizeControlInput.addEventListener('input', onInputChange);
 
-function onInputChange({ target }) {
-  textChange.style.fontSize = `${target.value}px`;
+function onInputChange({ target: { value } }) {
+  textChange.style.fontSize = `${value}px`;
 }

@@ -3,6 +3,6 @@ const nameOutput = document.querySelector('#name-output');
 
 nameInput.addEventListener('input', onInputChange);
 
-function onInputChange({ target }) {
-  nameOutput.textContent = target.value;
+function onInputChange({ target: { value } }) {
+  nameOutput.textContent = value;
 }
