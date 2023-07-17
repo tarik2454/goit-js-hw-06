@@ -1,5 +1,3 @@
-'use strict';
-
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -35,35 +33,3 @@ galleryContainer.style.paddingLeft = '0';
 galleryContainer.style.display = 'flex';
 galleryContainer.style.justifyContent = 'center';
 galleryContainer.style.gap = '20px';
-
-//* ---- Second option (reduce)
-// const galleryContainer = document.querySelector('.gallery');
-
-// const createCardsMarkup = ({ url, alt }) =>
-//   `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
-
-// const galleryCards = images.reduce((acc, item) => acc + createCardsMarkup(item), '');
-
-// galleryContainer.insertAdjacentHTML('afterbegin', galleryCards);
-// galleryContainer.setAttribute(
-//   'style',
-//   'list-style-type:none; display: flex; justify-content: center; gap: 20px'
-// );
-
-//* ---- Third option (function)
-// function createGalleryMarkup(array, selectorAppend) {
-//   const container = document.querySelector(`${selectorAppend}`);
-
-//   const renderItems = array
-//     .map(({ url, alt }) => {
-//       return `
-//         <li class="gallery__item">
-//           <img class="gallery__img" src="${url}" alt="${alt} " />
-//         </li>`;
-//     })
-//     .join('');
-
-//   container.insertAdjacentHTML('beforeend', renderItems);
-// }
-
-// createGalleryMarkup(images, 'ul.gallery');
